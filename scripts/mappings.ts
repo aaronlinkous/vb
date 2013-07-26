@@ -7,11 +7,14 @@ match($status) {
 		log("--> STATUS: 200")
 	
 		match($path) {
-			with(/forum/) {
+			with(/\/^forum/) {
 				$pagetype = "home";
 				@import pages/home.ts;
 			}
-
+			with(/\/forumdisplay\.php/) {
+				$pagetype = "sub_section";
+				@import pages/sub_section.ts;
+			}
 			else() {
 				log("--> No page match in mappings.ts")
 			}
