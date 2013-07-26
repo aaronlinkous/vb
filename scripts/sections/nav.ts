@@ -1,4 +1,4 @@
-insert("ul", id: "_nav") {
+insert("ul", id: "_nav", class: "_keep") {
 	remove("//a[@id='navbar_search']/..");
 	move_here("//div[contains(@class, 'vbmenu_control')]/a", "bottom") {
 		$sub_menu_id = fetch("@id")+"_menu";

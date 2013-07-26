@@ -5,10 +5,12 @@ $("./body") {
 				wrap("div", id: "_login_form");
 			}
 
-			@import nav.ts;
+			insert("button", id: "_nav_button", "nav");
 		}
 
 		insert("div", id: "_content");
 		$content = "//div[@id='_content']";
 	}
+
+	@import nav.ts;
 }
