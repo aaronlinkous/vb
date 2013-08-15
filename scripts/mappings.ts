@@ -5,15 +5,26 @@ match($status) {
 
 	with(/200/) {
 		log("--> STATUS: 200")
-	
 		match($path) {
-			with(/\/^forum/) {
+			with(/^\/$|^\/\?/) {
 				$pagetype = "home";
 				@import pages/home.ts;
+			}
+			with(/\/forum\/?$/) {
+				$pagetype = "index";
+				@import pages/index.ts;
+			}
+			with(/\/search\.php/) {
+				$pagetype = "search";
+				@import pages/search.ts;
 			}
 			with(/\/forumdisplay\.php/) {
 				$pagetype = "sub_section";
 				@import pages/sub_section.ts;
+			}
+			with(/\/showthread\.php/) {
+				$pagetype = "thread";
+				@import pages/thread.ts;
 			}
 			else() {
 				log("--> No page match in mappings.ts")
@@ -28,6 +39,7 @@ match($status) {
 	}
 }
 
+log("@@@@@@@@@@@@@@"+$pagetype);
 $("//body") {
 	add_class("_"+$pagetype);
 }

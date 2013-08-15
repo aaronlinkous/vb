@@ -14,6 +14,6 @@ $("./body") {
 	}
 
 	$("./*[not(contains(@class,'_keep'))]") {
-		#remove();
+		remove();
 	}
 }

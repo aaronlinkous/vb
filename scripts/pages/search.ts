@@ -1,6 +1,4 @@
 $($content) {
-	log("@@@@@test");
-
 	insert("ul", id: "_forums") {
 		$forums = path();
 	}
