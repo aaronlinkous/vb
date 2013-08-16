@@ -1,3 +1,39 @@
 ._index {
+	#_main {
+		background-color: $primary;
+	}
 
+	#_forums {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	._sub_section_header {
+		border-bottom: 1px solid darken($primary, 10%);
+		padding: 15px 10px;
+		color: #fff;
+		font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+		font-weight: 500;
+
+		+ ._sub_sections {
+			background-color: darken($primary, 10%);
+
+			._sub_section {
+				padding: 10px;
+				border-bottom: 1px solid $primary;
+			}
+
+			a {
+				font-size: .85em;
+				padding: 5px 0;
+				display: block;
+				color: #fff;
+			}
+		}
+
+		&.open {
+			background-color: $alternate;
+		}
+	}
 }

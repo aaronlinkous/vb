@@ -5147,21 +5147,9 @@ function panes(new_lvl, specific) {
 	lvl = new_lvl;
 }
 
-function get_size() {
-	ww = $(window).width();
-	wh = $(window).height();
 
-	$("#_wrapper, .pane").width(ww);
-	$("#_wrapper, .pane").height(wh);
-}
-
-get_size();
 var lvl = 3, ww,wh;
 $(document).ready(function(){
-	$(window).resize(function() {
-		get_size();
-	});
-
 	$("#_wrapper").swipe({
 		swipeRight:function(event, direction, distance, duration, fingerCount) {
 			dir = $(".pane[data-num='"+lvl+"']").attr("data-dir");
@@ -5179,5 +5167,10 @@ $(document).ready(function(){
 			new_lvl = parseInt($("#"+specific).attr("data-num"));
 			panes(new_lvl, specific);
 		}
+	});
+
+	$("._toggle_header").on("click", function(e) {
+		e.stopPropagation();
+		$(this).toggleClass("open");
 	});
 });

@@ -1,8 +1,5 @@
-// Site-wide styles go here
-
 @import "bourbon/_bourbon";
 
-@import "_vertical_rhythmic";
 $primary: #2c5966;
 $alternate: #12d9bf;
 $dark_gray: #636363;
@@ -24,6 +21,30 @@ html, body {
 
 * {
 	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: $alternate;
+}
+
+._toggle_header {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	+ ._toggle_content {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: none;
+	}
+
+	&.open {
+		+ ._toggle_content {
+			display: block;
+		}
+	}
 }
 
 #_wrapper {
@@ -243,6 +264,12 @@ html, body {
 
 		.top a {
 			font-weight: normal;
+		}
+	}
+
+	&.sticky {
+		&:before {
+			width: 30px;
 		}
 	}
 }
